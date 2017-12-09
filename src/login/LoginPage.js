@@ -83,7 +83,7 @@ const style = {
 class LoginPage extends Component {
   login = data =>
     this.props.loginAction(data).then(() => {
-      console.log("Logined");
+      this.props.history.push("/home");
     });
 
   render() {
@@ -110,7 +110,10 @@ class LoginPage extends Component {
 }
 
 LoginPage.propTypes = {
-  loginAction: PropTypes.func.isRequired
+  loginAction: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default connect(null, { loginAction })(LoginPage);
