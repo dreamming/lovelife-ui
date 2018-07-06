@@ -1,52 +1,28 @@
 import express from "express";
+import Article from "../models/Article";
 
 const router = express.Router();
 
 router.post("/", (req, res) => {
   const { item } = req.body;
+  switch (item) {
+    case 0:
+    Article.find().then(articles => {
+      res.json({homeItem:articles})
+    })
+    break;
 
-  res.json({
-    articles: [
-      //   {
-      //     photo: "../../assets/Chrysanthemum.jpg",
-      //     title: "Lovely",
-      //     subtitle: "Miss You",
-      //     author: "dmz",
-      //     authorDes: "girl single",
-      //     avatar: "../../assets/0.png"
-      //   },
-      //   {
-      //     photo: "",
-      //     author: "dmz",
-      //     authorDes: "girl single",
-      //     avatar: "../../assets/0.png"
-      //   },
-      //   {
-      //     photo: "",
-      //     author: "dmz",
-      //     authorDes: "girl single",
-      //     avatar: "../../assets/0.png"
-      //   },
-      //   {
-      //     photo: "",
-      //     author: "dmz",
-      //     authorDes: "girl single",
-      //     avatar: "../../assets/0.png"
-      //   },
-      //   {
-      //     photo: "",
-      //     author: "dmz",
-      //     authorDes: "girl single",
-      //     avatar: "../../assets/0.png"
-      //   }
-    ]
-  });
+    case 1:
+    break;
 
-  //   User.findOne({ email: credentials.email }).then(user => {
-  //     if (user && user.isPasswdCorrect(credentials.password)) {
-  //       res.json({ user: user.authJsonToken() });
-  //     } else {
-  //       res.status(400).json({ errors: { gloable: "Invalid Credentials" } });
-  //     }
-  //   });
+    case 2:
+    break;
+
+    default:
+}});
+
+router.get('/abcd', (req, res) => {
+  res.send('Hello Housem !');
 });
+export default router;
+

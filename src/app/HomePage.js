@@ -7,8 +7,13 @@ import Middle from "./Middle";
 import Foot from "./Foot";
 
 class HomePage extends Component {
-  showTabDetail = tab => this.props.showActiveTab(tab.props.item);
 
+  componentDidMount(){
+    this.props.showActiveTab(0);
+  }
+
+  showTabDetail = tab => this.props.showActiveTab(tab.props.item);
+  
   render() {
     return (
       <div>

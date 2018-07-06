@@ -3,6 +3,7 @@ import Paper from "material-ui/Paper";
 import TextField from "material-ui/TextField";
 import CardMedia from "material-ui/Card/CardMedia";
 import RichEditor from "../components/RichEditor";
+import MediaEdior from "../components/MediaEditor";
 // import Remarkable from "remarkable";
 
 const ArticleEditStyles = {
@@ -15,8 +16,8 @@ const ArticleEditStyles = {
     left: "100px",
     right: "100px",
     margin: "auto",
-    position: "absolute"
-    // width: 800
+    position: "absolute",
+    // height: 800
     // marginTop: "20%"
     // height: 8000
     // textAlign: "center"
@@ -80,6 +81,7 @@ class ArticleEdit extends Component {
         />  */}
 
         <RichEditor />
+        {/* <MediaEdior /> */}
       </div>
     );
   }

@@ -1,9 +1,12 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import LoginPage from "./login/LoginPage";
 import HomePage from "./app/HomePage";
+import DashboardPage from "./app/DashboardPage";
 import IndexPage from "./app/IndexPage";
+import UserRouter from "./routers/UserRouter";
+import GuestRouter from "./routers/GuestRouter";
 import ArticlesCOntainer from "./article/ArticlesContainer";
 import ArticleDetail from "./article/ArticleDetail";
 import ArticleEditPage from "./article/ArticleEditPage";
@@ -31,8 +34,8 @@ const App = ({ location }) => (
       path="/home/articles"
       component={ArticlesCOntainer}
     /> */}
-      <Route location={location} exact path="/login" component={LoginPage} />
-      <Route
+      <GuestRouter location={location} exact path="/login" component={LoginPage} />
+      <UserRouter
         location={location}
         exact
         path="/article/edit"
@@ -49,6 +52,12 @@ const App = ({ location }) => (
         exact
         path="/article/articleDetail/:id"
         component={ArticleDetail}
+      />
+
+      <UserRouter location={location}
+      exact
+      path="/dashboard"
+      component={DashboardPage}
       />
       {/* <Route component={NoMatch} /> */}
     </Switch>

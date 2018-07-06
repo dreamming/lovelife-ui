@@ -1,6 +1,4 @@
 import api from "./api";
-import avatarImg from "../assets/avatarImg.png";
-import backGroundImg from "../assets/Chrysanthemum.jpg";
 
 export const showArticles = articles => ({
   type: "SHOW_ARTICLE",
@@ -17,48 +15,23 @@ export const showVideos = videos => ({
   videos
 });
 
-export const showActiveTab = item => dispatch =>
-  dispatch(
-    showArticles([
-      {
-        id: "1",
-        photo: backGroundImg,
-        title: "Lovely",
-        subtitle: "Miss You",
-        author: "dmz",
-        authorDes: "girl",
-        avatar: avatarImg
-      },
-      {
-        id: "2",
-        photo: "",
-        author: "dmz",
-        authorDes: "girl",
-        avatar: avatarImg
-      },
-      {
-        id: "3",
-        photo: "",
-        author: "dmz",
-        authorDes: "girl",
-        avatar: avatarImg
-      },
-      {
-        id: "4",
-        photo: "",
-        author: "dmz",
-        authorDes: "girl",
-        avatar: avatarImg
-      },
-      {
-        id: "5",
-        photo: "",
-        author: "dmz",
-        authorDes: "girl",
-        avatar: avatarImg
-      }
-    ])
-  );
+export const showActiveTab = item => dispatch => {
+  switch (item) {
+    case 0:
+    api.userTab.showHomePage(item).then(article=>{
+      dispatch(showArticles(article))
+    });
+      break;
+    case 1:
+      dispatch(showPhotos(item));
+      break;
+    case 2:
+      dispatch(showVideos(item));
+      break;
+    default:
+      break;
+  }
+}
 // api.userTab.showHomePage(item).then(homeItem => {
 //   switch (item) {
 //     case 0:

@@ -54,7 +54,7 @@ class ArticleEditPage extends Component {
               secondary
               onClick={this.onHandleLogin}
             />
-            <HeartBeat />
+            {/* <HeartBeat /> */}
           </div>
         </Paper>
       </div>
